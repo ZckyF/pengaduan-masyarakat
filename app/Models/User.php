@@ -11,6 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use Notifiable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +21,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'role',
     ];
 
     /**
@@ -41,4 +44,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pengaduan()
+    {
+        return $this->hasMany(Pengaduan::class);
+    }
+
+    public function tanggapan()
+    {
+        return $this->hasMany(Tanggapan::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == 'admin' || $this->role == 'superadmin';
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->role == 'superadmin';
+    }
 }
