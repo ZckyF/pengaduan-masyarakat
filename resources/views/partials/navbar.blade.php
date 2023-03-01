@@ -17,15 +17,15 @@
         </a>
     </li>
     <li>
-        <a href="/profil" title="">
-            <span><img src="images/icon4.png" alt=""></span>
-            Profil
-        </a>
-    </li>
-    <li>
         <a href="/laporan" title="">
             <span><img src="images/icon9.png" alt=""></span>
             Laporan
+        </a>
+    </li>
+    <li>
+        <a href="/profil" title="">
+            <span><img src="images/icon4.png" alt=""></span>
+            Profil
         </a>
     </li>
     </ul>

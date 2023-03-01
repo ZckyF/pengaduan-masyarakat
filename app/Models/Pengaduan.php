@@ -16,11 +16,6 @@ class Pengaduan extends Model
         return $this->belongsTo(Tanggapan::class, 'id_tanggapan');
     }
 
-    public function kategori()
-    {
-        return $this->belongsTo(Kategori::class, 'id_kategori');
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);

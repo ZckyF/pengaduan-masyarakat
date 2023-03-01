@@ -1,18 +1,9 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Form Login</title>
-
-
-<link rel="stylesheet" href="{{ asset('cssnya/style.css') }}">
-</head>
-<body>
-<div class="login-form">
+@extends('layouts.loginRegister')
+@section('container')
+     <div class="login-form">
 <form action="" method="post">
     <div class="avatar">
-        <img src="img/avatar.png" alt="Avatar">
+        <img src="{{ asset('img/avatar.png') }}" alt="Avatar">
     </div>
     <h2 class="text-center">Form login</h2>
     <div class="form-group">
@@ -31,7 +22,8 @@
 </form>
 
 <p class="text-center small">Belum punya akun ? <a href="/register" class="text-primary">Registrasi</a></p>
-</div>
-</body>
-</html>
- --}}
+@endsection
+
+
+ 
+
