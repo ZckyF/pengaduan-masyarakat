@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengaduans', function (Blueprint $table) {
+        Schema::create('pengaduan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('text');
             $table->enum('status',['penting']);

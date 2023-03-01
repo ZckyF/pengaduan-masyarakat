@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PengaduanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index',[
+        'title'=> 'Home'
+    ]);
 });
+
+Route::get('/register',[PengaduanController::class,'register']);
+Route::get('/login',[PengaduanController::class,'login']);
+Route::get('/profil',[PengaduanController::class,'profil']);
+Route::get('/laporan',[PengaduanController::class,'laporan']);
+// Route::get('/register',[PengaduanController::class,'register']);
+// Route::get('/register',[PengaduanController::class,'register']);
