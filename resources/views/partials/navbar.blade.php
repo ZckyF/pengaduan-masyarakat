@@ -1,12 +1,12 @@
-<div class="wrapper">
+{{-- <div class="wrapper">
     <header>
     <div class="container">
     <div class="header-data">
     <div class="logo">
-    <a href="index.php" title=""><img src="images/logo.png" alt=""></a>
+    <a href="/" title=""><img src="images/logo.png" alt=""></a>
     </div><!--logo end-->
     <div class="search-bar navbar">
-    <h1 class="text-center text-white h6">Aplikasi Pengaduan Masyarakat</h1>
+    <h1 class="text-center text-white h6">Adura</h1>
     </div><!--search-bar end-->
     <nav>
     <ul>
@@ -34,4 +34,7 @@
     
 </div><!--header-data end-->
 </div>
-</header><!--header end-->
+</header><!--header end--> --}}
+
+
+{{-- Lebih baik di hapus saja isinya--}}
