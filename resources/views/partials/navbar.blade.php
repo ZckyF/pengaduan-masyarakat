@@ -1,40 +1,28 @@
-{{-- <div class="wrapper">
-    <header>
-    <div class="container">
-    <div class="header-data">
-    <div class="logo">
-    <a href="/" title=""><img src="images/logo.png" alt=""></a>
-    </div><!--logo end-->
-    <div class="search-bar navbar">
-    <h1 class="text-center text-white h6">Adura</h1>
-    </div><!--search-bar end-->
-    <nav>
-    <ul>
-    <li>
-        <a href="/" title="">
-            <span><img src="images/icon1.png" alt=""></span>
-            Home
-        </a>
-    </li>
-    <li>
-        <a href="/laporan" title="">
-            <span><img src="images/icon9.png" alt=""></span>
-            Laporan
-        </a>
-    </li>
-    <li>
-        <a href="/profil" title="">
-            <span><img src="images/icon4.png" alt=""></span>
-            Profil
-        </a>
-    </li>
-    </ul>
-    </nav><!--nav end-->
 
+
+<div class="container">
     
-</div><!--header-data end-->
+       
+        <nav>
+          <div class="brand">
+            <a href="#">AD<span>URA</span></a>
+        </div>
+            <div class="home">
+
+                <a href="/home">
+                    <img src="{{ asset('/icon/icon-home.png') }}" alt="">
+                </a>
+            </div>
+            <div class="laporan">
+                <a href="/laporan">
+                    <img src="{{ asset('/icon/icon-laporan.png') }}" alt="">
+                </a>
+            </div>
+            <div class="profile">
+                <a href="/profil">
+                    <img src="{{ asset('/icon/icon-profile.png') }}" alt="">
+                </a>
+            </div>
+        </nav>
+   
 </div>
-</header><!--header end--> --}}
-
-
-{{-- Lebih baik di hapus saja isinya--}}

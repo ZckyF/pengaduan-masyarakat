@@ -1,0 +1,160 @@
+
+.container {
+    background-color: #049e99;
+    min-width: 100%;
+    min-height: 50px;
+}
+/* =====================================================Navbar========================================== */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: auto;
+    padding-left: 50px;
+    box-sizing: border-box;
+  }
+  
+  .brand a {
+    text-decoration: none;
+    color: white; /* warna teks */
+  }
+  /* .brand a::before {
+    content: url(/img/logo-adura4.png);
+  } */
+
+  .brand a span {
+    color: salmon;
+  }
+  
+
+
+.home img, .laporan img{
+    width: 30px;
+    height: 30px;
+}
+.profile img {
+    width: 30px;
+    height: 27px;
+}
+.laporan{
+    margin: 0 20px;
+}
+
+/* =====================================================Home========================================== */
+
+.home {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.home a{
+    text-decoration: none;
+   
+    color: white;
+} 
+.home a::after{
+    content: 'Home';
+    opacity: 0;
+    transition: all .2s;
+    position: absolute;
+}
+
+.home:hover a::after{
+    opacity: 1;
+    /* position: relative; */
+}
+
+.home a img {
+    transition: all .3s;
+    color: white;
+    top: -4px;
+    position: relative;
+}
+
+.home:hover{
+    position: relative;
+    /* transform: translatex(-45px); */
+    margin-right: 40px;
+}
+
+/* =====================================================Laporan========================================== */
+
+.laporan {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.laporan a{
+    text-decoration: none;
+   
+    color: white;
+} 
+.laporan a::after{
+    content: 'Laporan';
+    opacity: 0;
+    transition: all .2s;
+    position: absolute;
+}
+
+.laporan:hover a::after{
+    opacity: 1;
+}
+
+.laporan a img {
+    transition: all .3s;
+    color: white;
+    top: -4px;
+    position: relative;
+}
+
+.laporan:hover{
+    position: relative;
+    /* transform: translatex(-45px); */
+    margin-right: 70px;
+}
+
+/* =====================================================Profile========================================== */
+
+.profile {
+    cursor: pointer;
+    transition: all .5s;
+    min-width: 100px;
+}
+
+.profile a{
+    text-decoration: none;
+   
+    color: white;
+} 
+.profile a::after{
+    content: 'Profile';
+    opacity: 0;
+    transition: all .2s;
+    position: absolute;
+}
+
+.profile:hover a::after{
+    opacity: 1;
+}
+
+.profile a img {
+    transition: all .3s;
+    color: white;
+    top: -4px;
+    position: relative;
+}
+
+.profile:hover{
+    position: relative;
+    /* transform: translatex(-45px); */
+    margin-right: 50px;
+}

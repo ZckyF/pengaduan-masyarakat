@@ -20,3 +20,9 @@ Route::get('/profil', [ComplaintController::class, 'profil']);
 Route::get('/login', [ComplaintController::class, 'login']);
 Route::get('/register', [ComplaintController::class, 'register']);
 
+Route::get('/home', function () {
+    return view ('user/home2',[
+        'title' => 'coba-coba'
+    ]);
+});
+
