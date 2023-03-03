@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComplaintController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user/home',[
-        'title' => "Home"
-    ]);
-});
+Route::get('/', [ComplaintController::class, 'index']);
+Route::get('/laporan', [ComplaintController::class, 'laporan']);
+Route::get('/profil', [ComplaintController::class, 'profil']);
+Route::get('/login', [ComplaintController::class, 'login']);
+Route::get('/register', [ComplaintController::class, 'register']);
+

@@ -13,7 +13,38 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        //
+        return view('user/index',[
+            'title' => "Home"
+        ]);
+        
+    }
+    public function laporan()
+    {
+        return view('user/laporan',[
+            'title' => "Laporan"
+        ]);
+        
+    }
+    public function profil()
+    {
+        return view('user/profil',[
+            'title' => "Profil"
+        ]);
+        
+    }
+    public function login()
+    {
+        return view('user/login',[
+            'title' => "Login"
+        ]);
+        
+    }
+    public function register()
+    {
+        return view('user/register',[
+            'title' => "Register"
+        ]);
+        
     }
 
     /**
