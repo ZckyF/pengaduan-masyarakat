@@ -1,35 +1,36 @@
 @extends('layouts.loginRegister')
 @section('container')
 
-<div class="login-form">
-    <form action="" method="post">
-		<div class="avatar">
-			<img src="img/avatar.png" alt="Avatar">
-		</div>
-        <h2 class="text-center">Form Pendaftaran</h2>
-         <div class="form-group">
-        	<input type="hidden" name="kode" value="">
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center">Register</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+          </div>
+          <div class="card-footer">
+            <p class="text-center">Sudah memiliki akun ?<a href="/login">Login</a></p>
+          </div>
         </div>
-        {{-- <div class="form-group">
-        	<input type="text" class="form-control" name="nama_user" placeholder="nama lengkap" required="required">
-        </div>
-        <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="email" required="required">
-        </div> --}}
+      </div>
+    </div>
+  </div>
 
-        <div class="form-group">
-        	<input type="text" class="form-control" name="user" placeholder="username" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="pass1" placeholder="password" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="pass2" placeholder="ulangi password" required="required">
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary btn-lg btn-block" value="DAFTAR" name="tombol">
-        </div>
-    </form>
-
-    <p class="text-center small">Sudah punya akun ? <a href="/login" class="text-primary">Login</a></p>
 @endsection

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengaduan Masyarakat</title>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home1.css') }}">
 </head>
 <body>
     
@@ -14,9 +14,6 @@
             <nav>
                 <div class="brand">
                     <p>AD<span>URA</span></p>
-                </div>
-                <div class="profile">
-                <a href="#"><img src="IMG/icons8-female-profile-48.png" alt=""></a>
                 </div>
 
          
@@ -56,16 +53,5 @@
             </div>
 
     </div>
-
-    <script>
-
-        const menu = document.querySelector('.menu');
-        const nav = document.querySelector('.cl-effect-3');
-    
-        menu.addEventListener('click', function() {
-            nav.classList.toggle('slide');
-        });
-    
-    </script>
 </body>
 </html>
