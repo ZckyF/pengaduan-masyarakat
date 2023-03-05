@@ -1,1 +1,1 @@
-@include('user/home')
+@include('user.home')

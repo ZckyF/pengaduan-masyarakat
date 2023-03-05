@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengaduan Masyarakat</title>
-    <link rel="stylesheet" href="{{ asset('css/home1.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssnya/home1.css') }}">
 </head>
 <body>
     
@@ -17,7 +17,7 @@
                 </div>
 
          
-                <div class="login">
+                {{-- <div class="login">
                     <a href="#" class="sign-in">
                         <span></span>
                         Sign In</a>
@@ -26,7 +26,7 @@
                     <a href="#" class="sign-up">
                         <span></span>
                         Sign Up</a>
-                </div>
+                </div> --}}
             </nav>
     
             <div class="hero">
@@ -39,7 +39,7 @@
                 <p class="margin">Yang Terbaik Buat Anda.</p>
     
                 <div class="button">
-                    <a href="#">
+                    <a href="/laporan">
                         <span></span>
                         <span></span>
                         <span></span>

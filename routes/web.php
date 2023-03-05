@@ -15,14 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ComplaintController::class, 'index']);
-Route::get('/laporan', [ComplaintController::class, 'laporan']);
-Route::get('/profil', [ComplaintController::class, 'profil']);
-Route::get('/login', [ComplaintController::class, 'login']);
-Route::get('/register', [ComplaintController::class, 'register']);
 
-Route::get('/home', function () {
-    return view ('user/home2',[
-        'title' => 'coba-coba'
-    ]);
-});
+Route::get('/laporan', [ComplaintController::class, 'showFormLaporan'])->name('complaints.laporan');
+Route::post('/laporan', [ComplaintController::class,'create'])->name('complaints.create');
+
+
+
 

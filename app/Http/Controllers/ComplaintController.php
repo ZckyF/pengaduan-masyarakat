@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Complaint;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ComplaintController extends Controller
 {
@@ -11,38 +14,17 @@ class ComplaintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('user/index',[
+
+     public function index () 
+     {
+        return view('user.home',[
             'title' => "Home"
-        ]);
-        
-    }
-    public function laporan()
+        ]);  
+     }
+    public function showFormLaporan ()
     {
-        return view('user/laporan',[
+        return view('user.laporan',[
             'title' => "Laporan"
-        ]);
-        
-    }
-    public function profil()
-    {
-        return view('user/profil',[
-            'title' => "Profil"
-        ]);
-        
-    }
-    public function login()
-    {
-        return view('user/login',[
-            'title' => "Login"
-        ]);
-        
-    }
-    public function register()
-    {
-        return view('user/register',[
-            'title' => "Register"
         ]);
         
     }
@@ -52,10 +34,10 @@ class ComplaintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+   public function create (Request $request) 
+   {
+
+   }
 
     /**
      * Store a newly created resource in storage.
