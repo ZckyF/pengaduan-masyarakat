@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ComplaintController::class, 'index']);
 
-Route::get('/laporan', [ComplaintController::class, 'showFormLaporan'])->name('complaints.laporan');
-Route::post('/laporan', [ComplaintController::class,'create'])->name('complaints.create');
+Route::get('/laporan', [ComplaintController::class, 'create'])->name('complaints.create');
+Route::post('/laporan', [ComplaintController::class,'store'])->name('complaints.store');
 
 
 

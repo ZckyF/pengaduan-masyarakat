@@ -6,6 +6,7 @@ use App\Models\Complaint;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ComplaintController extends Controller
 {
@@ -21,23 +22,63 @@ class ComplaintController extends Controller
             'title' => "Home"
         ]);  
      }
-    public function showFormLaporan ()
-    {
-        return view('user.laporan',[
-            'title' => "Laporan"
-        ]);
-        
-    }
+
+     public function create(Request $request)
+     {
+         return view('user.laporan',[
+             'title' => "Laporan"
+         ]);
+     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-   public function create (Request $request) 
-   {
+    public function store(Request $request)
+{
+        // validasi form
 
-   }
+        if(!$request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'nik' => 'required|numeric',
+            'aduan' => 'required|max:1000',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'nama.required' => 'Kolom nama harus diisi.',
+            'email.required' => 'Kolom email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'nik.required' => 'Kolom NIK harus diisi.',
+            'nik.numeric' => 'NIK harus berupa angka.',
+            'aduan.required' => 'Kolom aduan harus diisi.',
+            'image.required' => 'Pilih gambar untuk diunggah.',
+            'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Format gambar yang diizinkan adalah: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'Ukuran gambar maksimal 2MB.',
+        ])) {
+            return redirect('/laporan')->with('error', 'Terjadi kesalahan saat menyimpan laporan aduan. Silakan coba lagi nanti.')->withInput();
+        }
+
+        // simpan gambar ke folder public
+        $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path('images'), $imageName);
+        $imageUrl = asset('images/' . $imageName);        
+
+        // simpan pengaduan ke database
+        $complaint = new Complaint();
+        $complaint->nama = $request->nama;
+        $complaint->email = $request->email;
+        $complaint->nik = $request->nik;
+        $complaint->aduan = $request->aduan;
+        $complaint->image = $imageUrl;
+        $complaint->save();
+
+        return redirect('/laporan')->with('success', 'Laporan aduan telah berhasil dikirim.');
+     
+}
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,10 +86,6 @@ class ComplaintController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
