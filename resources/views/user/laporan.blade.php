@@ -1,8 +1,19 @@
 @extends('layouts.main')
 @section('container')
 
-@if(!session('success')) {
 
+{{-- <div class="alert  mt-3 col-2 text-center">
+  {{ session('success') }}
+  Laporan aduan telah berhasil dikirim.
+</div> --}}
+<div class="@if(session('success')) fixed @endif">
+  @if(session('success')) 
+  <div class="success-message">
+    <i class="fa fa-check-circle"></i>
+    <p>Laporan aduan telah berhasil dikirim.</p>
+    <a href="/" class="link">Kembali</a>
+  </div>
+@endif
 <div class="container col-5 mt-5 pt-3 pb-5">
   <div class="row justify-content-center bg-light py-4 px-5 border-0">
     <div class="col-md-9">
@@ -60,12 +71,14 @@
     </div>
   </div>
 </div>
-@endif
-    @if(session('success'))
-        <div class="alert alert-success mt-3">
-          {{ session('success') }}
-        </div>
-        @endif
+
+  
+
+</div>
+
+
+        
+        
         
  
 @endsection

@@ -18,7 +18,7 @@ class CreateComplaintsTable extends Migration
             $table->foreignId('response_id')->nullable();
             $table->string('nama');
             $table->string('email');
-            $table->string('nik');
+            $table->string('nik')->unique();
             $table->text('aduan');
             $table->longText('image');
             $table->timestamps();
