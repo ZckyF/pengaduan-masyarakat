@@ -19,12 +19,57 @@
 
     @yield('container')
 
-    
+    @include('partials.modal')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
   <!-- MDB -->
   <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+{{-- <script>
+    // Dapatkan elemen modal dan tombol buka modal
+const modal = document.getElementById("myModal");
+const tombol = document.getElementById("tombol");
+
+
+// Dapatkan elemen tombol "Ya","Tidak" dan "myForm"
+const ya = document.getElementById("ya");
+const tidak = document.getElementById("tidak");
+const myForm = document.querySelector('form.pb-5');
+const close = document.querySelector('.close');
+
+
+
+// Ketika tombol dibuka, tampilkan modal
+tombol.addEventListener('click', (e) => {
+    e.preventDefault()
+  modal.style.display = "block";
+
+// Ketika pengguna menekan tombol "Tidak", tutup modal
+tidak.addEventListener('click',() => {
+    modal.style.display = "none";
+})
+// Ketika pengguna menekan tombol X di atas, tutup modal
+close.addEventListener('click',() => {
+    modal.style.display = "none";
+})
+  
+// Ketika pengguna menekan tombol "Ya", lakukan tindakan yang diinginkan dan tutup modal
+ya.addEventListener('click',() => {
+    function submitForm() {
+    myForm.submit();
+  }
+    modal.style.display = "none";
+    submitForm();
+})
+  
+  // Tambahkan kode JavaScript di sini untuk mengeksekusi tindakan yang diinginkan
+
+})
+
+</script> --}}
 
 
 </body>

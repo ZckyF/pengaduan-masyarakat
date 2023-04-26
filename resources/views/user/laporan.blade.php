@@ -6,7 +6,7 @@
   {{ session('success') }}
   Laporan aduan telah berhasil dikirim.
 </div> --}}
-<div class="@if(session('success')) fixed @endif">
+
   @if(session('success')) 
   <div class="success-message">
     <i class="fa fa-check-circle"></i>
@@ -20,7 +20,7 @@
       <div class="card-header py-4 px-5 bg-light border-0 text-center">
         <h4 class="mb-0">Form Aduan Masyarakat</h4>
       </div>
-      <form action="{{ route('complaints.store') }}" method="post" class="pb-5" autocomplete="off" enctype="multipart/form-data">
+      <form action="{{ route('complaints.store') }}" id="myForm" method="POST" class="pb-5" autocomplete="off" enctype="multipart/form-data">
         @csrf
         <div class="form-outline mb-4">
           <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama"
@@ -61,25 +61,22 @@
           <input type="file" class="form-control" id="customFile" name="image" />
         </div>
 
-        <button type="submit" class="btn btn-primary" name="submit">Kirim Laporan</button>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Anda yakin datanya sudah benar ?')"data data-bs-target="#exampleModal" name="submit" data-bs-backdrop="false">Kirim Laporan</button>
         @if(session('error'))
         <div class="alert alert-danger mt-3">
           {{ session('error') }}
         @endif
+
         </div>
       </form>
     </div>
   </div>
 </div>
-
-  
-
 </div>
 
 
+
         
-        
-        
- 
+    
 @endsection
 
