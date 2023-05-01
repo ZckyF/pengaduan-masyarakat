@@ -16,7 +16,7 @@ class CreateResponsesTable extends Migration
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
             $table->string('oleh');
-            $table->enum('status', ['ditanggapi', 'ditolak']);
+            $table->enum('status', ['pending', 'ditanggapi', 'ditolak']);
             $table->text('tanggapan');
             $table->timestamps();
         });

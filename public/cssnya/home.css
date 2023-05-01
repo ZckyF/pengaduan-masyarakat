@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(212, 212, 212);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(48, 48, 48);
+    background-image: url(/img/wp11126681-people-working-wallpapers.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+/* ===================================================== Navigasi ======================================================= */
+
+nav {
+    display: grid;
+    grid-template-areas: "logo login";
+    grid-template-columns: max-content 1fr;
+    width: 100vw;
+    justify-content: space-around;
+}
+
+.login {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 50px;
+    justify-content: right;
+}
+.login a {
+    font-size: 1em;
+    text-decoration: none;
+    color: aliceblue;
+}
+.login .baricade {
+    content: "";
+    margin: auto 10px;
+    width: 1px;
+    height: 25px;
+    background-color: white;
+}
+
+.brand {
+    padding-top: 20px;
+    padding-left: 50px;
+}
+.brand p {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.brand p span {
+    color: #fa7e70;
+}
+
+.sign-in {
+    position: relative;
+}
+.sign-in span {
+    position: absolute;
+    right: -10px;
+    width: 0;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.416);
+    transition: all 0.3s;
+}
+.sign-in:hover span {
+    width: 135%;
+}
+
+.sign-up {
+    position: relative;
+}
+.sign-up span {
+    position: absolute;
+    left: -10px;
+    width: 0;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.416);
+    transition: all 0.3s;
+}
+.sign-up:hover span {
+    width: 135%;
+}
+
+.profile {
+    display: none;
+    height: min-content;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+.profile a img {
+    width: 30px;
+    height: 30px;
+}
+
+/* ============================================ Content ================================================================ */
+
+.hero {
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 90%;
+}
+.pembungkus {
+    display: grid;
+    justify-items: center;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-weight: 100;
+}
+
+.margin {
+    margin-bottom: 20px;
+}
+
+.button a:hover {
+    color: black;
+    background-color: #00cdc6;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 5px #00cdc6, 0 0 25px #00cdc6, 0 0 50px #00cdc6;
+}
+.button a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 4px;
+}
+.button a span {
+    position: absolute;
+    display: block;
+}
+
+.button a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: span1 1s linear infinite;
+}
+
+@keyframes span1 {
+    0% {
+        left: -100%;
+    }
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.button a span:nth-child(2) {
+    right: 0;
+    top: -100%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(transparent, #03e9f4);
+    animation: span2 1s 0.25s linear infinite;
+}
+
+@keyframes span2 {
+    0% {
+        top: -100%;
+    }
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+.button a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: span3 1s 0.5s linear infinite;
+}
+
+@keyframes span3 {
+    0% {
+        right: -100%;
+    }
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+.button a span:nth-child(4) {
+    left: 0;
+    bottom: -100%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: span4 1s 0.75s linear infinite;
+}
+
+@keyframes span4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* ================================================ Media Screen ===================================== */
+
+@media screen and (max-width: 820px) {
+    .hero h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .login {
+        font-size: 0.8em;
+    }
+    .profile {
+        display: grid;
+        justify-content: right;
+        align-content: center;
+    }
+    .brand {
+        padding: 20px 20px;
+        width: 100%;
+    }
+    .brand p {
+        font-size: 1em;
+    }
+    .hero h2 {
+        font-size: 1.3em;
+    }
+    .sign-in:hover span,
+    .sign-up:hover span {
+        width: 135%;
+        height: 2.5vh;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .hero h2 {
+        font-size: 1em;
+    }
+    .hero p {
+        font-size: 0.8em;
+    }
+    .login a {
+        font-size: 0.7em;
+    }
+    .login {
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+}

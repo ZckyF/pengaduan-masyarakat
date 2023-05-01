@@ -1,0 +1,101 @@
+body {
+  background-color: silver;
+}
+.container {
+    z-index: -1;
+    position: absolute;
+    margin-left: 450px;
+}
+.fixed {
+background-color: rgba(0, 0, 0,.9);
+position: absolute;
+min-width: 100%;
+height: 100%;
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: #00cdc6;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 30%;
+  position: absolute;
+  margin: 15% auto;
+ margin-left: 550px;
+ 
+}
+
+.success-message i {
+  margin-right: 10px;
+  align-self: center;
+  font-size: 5em;
+}
+.success-message p {
+  text-align: center;
+  margin-top: 20px;
+}
+.success-message .link {
+  text-align: center;
+  color: #00cdc6;
+  background-color: white;
+  min-width: 100px;
+  align-self: center;
+  padding: 2px 2px;
+  text-decoration: none;
+}
+
+.link:hover {
+    background-color: rgb(224, 224, 224);
+    color: #06817d;
+    transition:all .3s ease-out;
+}
+
+
+
+/* Style untuk modal */
+.modal {
+  display: none; /* Sembunyikan modal secara default */
+  position: fixed; /* Tetapkan posisi elemen */
+  z-index: 1; /* Menempatkan modal di atas elemen lain */
+  left: 0;
+  top: 0;
+  width: 100%; /* Set lebar elemen menjadi 100% */
+  height: 100%; /* Set tinggi elemen menjadi 100% */
+  overflow: auto; /* Aktifkan scrolling jika konten melebihi ketinggian modal */
+  background-color: rgba(0,0,0,0.4); /* Membuat latar belakang menjadi gelap */
+}
+
+/* Style untuk konten modal */
+.modal-content {
+  background-color: white;
+  margin: 15% auto; /* Posisikan konten modal ke tengah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Set lebar konten modal */
+}
+
+/* Style untuk header modal */
+.modal-header h2 {
+  margin-top: 0;
+}
+
+/* Style untuk tombol close */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

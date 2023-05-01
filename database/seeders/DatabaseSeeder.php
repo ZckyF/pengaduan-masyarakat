@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Complaint;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Complaint::factory(20)->create();
+        User::create([
+            'username' => 'Jaki',
+            'password' => Hash::make('123'),
+            'level' => 'admin'
+        ]);
+        User::create([
+            'username' => 'Daus',
+            'password' => Hash::make('12345'),
+            'level' => 'super_admin'
+        ]);
     }
 }
