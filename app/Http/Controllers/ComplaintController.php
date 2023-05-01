@@ -15,12 +15,14 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.index',[
+            'title' => 'Adura'
+        ]);
     }
 
     public function create () {
         return view('user.laporan',[
-            'title' => 'Halaman Adura'
+            'title' => 'Form Adura'
         ]);
     }
 

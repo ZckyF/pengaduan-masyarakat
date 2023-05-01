@@ -91,7 +91,7 @@ class AdminController extends Controller
         return view('admin.complaint-response');   
     }
 
-    public function destory ($id) 
+    public function destroy ($id) 
     {
         $complaint = Complaint::find($id);
         Response::where('id', $complaint->response_id)->delete();

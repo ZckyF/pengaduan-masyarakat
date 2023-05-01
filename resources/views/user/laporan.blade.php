@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-outline mb-4">
-          <input type="number" id="NIK" class="form-control @error('nik') is-invalid @enderror" min="0" name="nik"
+          <input type="number" id="NIK" class="form-control @error('nik') is-invalid @enderror" name="nik"
             value="{{ old('nik') }}" />
           <label class="form-label" for="NIK">NIK</label>
           @error('nik')
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-outline mb-4">
-          <input type="text" id="judul" class="form-control @error('judul') is-invalid @enderror" min="0" name="judul"
+          <input type="text" id="judul" class="form-control @error('judul') is-invalid @enderror" name="judul"
             value="{{ old('judul') }}" />
           <label class="form-label" for="judul">Judul Aduan</label>
           @error('judul')

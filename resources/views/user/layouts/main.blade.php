@@ -10,7 +10,7 @@
 <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <!-- MDB -->
 <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('cssnya/laporan1.css') }}">
+<link rel="stylesheet" href="{{ asset('cssnya/user/laporan.css') }}"> 
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 
     @yield('container')
 
-    
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
