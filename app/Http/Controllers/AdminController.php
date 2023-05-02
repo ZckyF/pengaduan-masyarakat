@@ -49,11 +49,11 @@ class AdminController extends Controller
             ]);
             // if ($status == 'ditolak') {
             //     $subject = 'Pesan Aduan Anda Ditolak';
-            //     $message = "Halo $username, pesan aduan anda yang berjudul '$judul'  telah ditolak. pesan admin : $response";
+            //     $message = "Halo $username, pesan aduan anda yang berjudul '$judul'  telah ditolak. Pesan admin : $response";
             //     Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
             // } else {
             //     $subject = 'Pesan Aduan Anda Ditanggapi';
-            //     $message = "Halo $username, pesan aduan Anda yang berjudul '$judul' telah ditanggapi. pesan admin : $response";
+            //     $message = "Halo $username, pesan aduan Anda yang berjudul '$judul' telah ditanggapi. Pesan admin : $response";
             //     Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
             // }
             return redirect('admin')->with('status', $status);
@@ -72,12 +72,12 @@ class AdminController extends Controller
         
     //    if ($status == 'ditolak') {
     //             $subject = 'Pesan Aduan Anda Ditolak';
-    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditolak. pesan admin : $response";
+    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditolak. Pesan admin : $response";
     //             Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
     //         } 
     //     else {
     //             $subject = 'Pesan Aduan Anda Ditanggapi';
-    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditanggapi. pesan admin : $response";
+    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditanggapi. Pesan admin : $response";
     //             Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
     //         }
         return redirect('admin')->with('status', $status);
@@ -96,7 +96,7 @@ class AdminController extends Controller
         $complaint = Complaint::find($id);
         Response::where('id', $complaint->response_id)->delete();
         $complaint->delete();
-        return redirect('admin');   
+        return redirect('admin')->with('status', "Pesan yang berjudul '$complaint->judul' berhasil dihapus ");   
     }
 }
 

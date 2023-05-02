@@ -4,6 +4,8 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Hello, {{ Auth::user()->username }}</h1>
         </div>
+
+
         @if (session('status') == 'ditolak')
         <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
           Pesan aduan : <strong>{{ session('status') }}</strong> 
@@ -11,6 +13,13 @@
         </div>
         @endif
         @if (session('status') == 'ditanggapi')
+        <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
+          Pesan aduan : <strong>{{ session('status') }}</strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
           Pesan aduan : <strong>{{ session('status') }}</strong> 
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

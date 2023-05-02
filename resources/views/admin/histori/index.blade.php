@@ -14,7 +14,7 @@
             <th scope="col">Username</th>
             <th scope="col">Level</th>
             <th scope="col">Tanggal Dibuat</th>
-            <th scope="col">Aksi</th>
+            <th scope="col">Restore</th>
         </tr>
       </thead>
       <tbody>
@@ -23,12 +23,9 @@
           <td>Hola</td>
           <td>Hola</td>
           <td>
-            <a href="#" class="badge bg-warning" ><span data-feather="refresh-ccw"></span></a>
-
             <form action="#" method="post" class="d-inline">
-              @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Yakin ingin menghapus aduan ini')"><span data-feather="x-circle"></span></button>
+              <button class="badge bg-warning border-0"><span data-feather="refresh-ccw"></span></button>
 
             </form>
           </td>
