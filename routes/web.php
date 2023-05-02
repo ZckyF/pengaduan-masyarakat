@@ -50,4 +50,12 @@ Route::get('/admin/histori', function () {
     ]);
 })->middleware('auth');
 
+Route::post('/admin/histori', function(Request $request) {
+    Complaint::find($request->input('id'))->update([
+        'removed' => false
+    ]);
+
+    return redirect('admin');
+});
+
 Route::resource('/admin/tambah', TambahAdminController::class)->middleware('auth');
