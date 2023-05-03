@@ -94,9 +94,11 @@ class AdminController extends Controller
     public function destroy ($id) 
     {
         $complaint = Complaint::find($id);
-        Response::where('id', $complaint->response_id)->delete();
-        $complaint->delete();
+        $complaint->update([
+            'removed' => true
+        ]);
+        
         return redirect('admin')->with('hapus', "Aduan yang berjudul '$complaint->judul' berhasil dihapus ");   
+ 
     }
 }
-

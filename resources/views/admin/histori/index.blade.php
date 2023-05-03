@@ -10,26 +10,29 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-            <th scope="col">No</th>
-            <th scope="col">Username</th>
-            <th scope="col">Level</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Aduan</th>
             <th scope="col">Tanggal Dibuat</th>
             <th scope="col">Restore</th>
         </tr>
       </thead>
       <tbody>
-          <td>1</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>
-            <form action="#" method="post" class="d-inline">
-              @csrf
-              <button class="badge bg-warning border-0"><span data-feather="refresh-ccw"></span></button>
-
-            </form>
-          </td>
-        </tr>
+        @foreach ($complaints as $complaint)
+            @if ($complaint->removed)
+            <tr>
+              <td>{{ $complaint->nama }}</td>
+              <td>{{ $complaint->judul }}</td>
+              <td>{{ $complaint->created_at }}</td>
+              <td>
+                <form action="/admin/histori" method="post" class="d-inline">
+                  @csrf
+                  <input type="hidden" name="id" value="{{ $complaint->id }}">
+                  <button class="badge bg-warning border-0" onclick="return confirm('Yakin ingin Restore ?')"><span data-feather="refresh-ccw" ></span></button>
+                </form>
+              </td>
+            </tr>
+            @endif
+        @endforeach
       </tbody>
     </table>
   </div>

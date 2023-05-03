@@ -52,8 +52,16 @@
                         <label for="response">Response</label>
                     
                   </div>
-                  <button type="submit" name="tanggapiButton" value="ditanggapi" class="btn btn-primary" role="button"  onclick="return confirm('Yakin ingin menanggapi ?')">Tanggapi</button>
-                  <button type="submit" name="tolakButton" value="ditolak" class="btn btn-danger" role="button" onclick="return confirm('Yakin ingin menolak ?')">Tolak</button>
+                  @if (!empty($complaint->response))
+                    @if ($complaint->response->status == 'ditanggapi')
+                        <button type="submit" name="tolakButton" value="ditolak" class="btn btn-danger" role="button" onclick="return confirm('Yakin ingin menolak ?')">Tolak</button>
+                    @else
+                        <button type="submit" name="tanggapiButton" value="ditanggapi" class="btn btn-primary" role="button"  onclick="return confirm('Yakin ingin menanggapi ?')">Tanggapi</button>
+                    @endif
+                  @else
+                    <button type="submit" name="tanggapiButton" value="ditanggapi" class="btn btn-primary" role="button"  onclick="return confirm('Yakin ingin menanggapi ?')">Tanggapi</button>
+                    <button type="submit" name="tolakButton" value="ditolak" class="btn btn-danger" role="button" onclick="return confirm('Yakin ingin menolak ?')">Tolak</button>
+                  @endif
                 </form>
                 
           

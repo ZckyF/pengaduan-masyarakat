@@ -22,6 +22,7 @@ class CreateComplaintsTable extends Migration
             $table->text('judul');
             $table->text('aduan');
             $table->longText('image');
+            $table->boolean('removed')->default(false);
             $table->timestamps();
         });
     }

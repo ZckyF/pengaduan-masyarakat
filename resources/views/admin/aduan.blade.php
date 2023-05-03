@@ -25,8 +25,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
-
-
+        @if (session('restore'))
+        <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
+          <strong>{{ session('restore') }}</strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
      
       @if (count($complaints) > 0)
       
@@ -35,7 +39,6 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th scope="col">No</th>
                 <th scope="col">Judul Aduan</th>
                 <th scope="col">Tanggal Aduan</th>
                 <th scope="col">Status</th>
@@ -44,7 +47,8 @@
             </thead>
             <tbody>
               @foreach ($complaints as $complaint)
-              @if (!is_null($complaint->response))
+                @if (!$complaint->removed)
+                @if (!is_null($complaint->response))
                 @if ($complaint->response->status == "ditolak")
                   <tr class="table-danger">
                 @elseif ($complaint->response->status == "ditanggapi")
@@ -55,7 +59,6 @@
               @else
                 <tr>
               @endif
-                <td>{{ $loop->iteration }}</td>
                 <td>{{ $complaint->judul }}</td>
                 <td>{{ $complaint->created_at }}</td>
                 <td>
@@ -70,6 +73,7 @@
                   <a href="/admin/{{ $complaint->id }}/delete" class="badge bg-danger" onclick="return confirm('Yakin ingin menghapus aduan ini')"><span data-feather="x-circle"></span></a>
                 </td>
               </tr>
+              @endif
             @endforeach
             
             

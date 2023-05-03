@@ -50,4 +50,13 @@ Route::get('/admin/histori', function () {
     ]);
 })->middleware('auth');
 
+Route::post('/admin/histori', function(Request $request) {
+    Complaint::find($request->input('id'))->update([
+        'removed' => false
+    ]);
+    $complaint = Complaint::find($request->input('id'));
+
+    return redirect('admin')->with('restore', "Aduan yang berjudul $complaint->judul berhasil di restore ");
+});
+
 Route::resource('/admin/tambah', TambahAdminController::class)->middleware('auth');
