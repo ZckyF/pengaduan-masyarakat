@@ -96,7 +96,7 @@ class AdminController extends Controller
         $complaint = Complaint::find($id);
         Response::where('id', $complaint->response_id)->delete();
         $complaint->delete();
-        return redirect('admin')->with('status', "Pesan yang berjudul '$complaint->judul' berhasil dihapus ");   
+        return redirect('admin')->with('hapus', "Aduan yang berjudul '$complaint->judul' berhasil dihapus ");   
     }
 }
 

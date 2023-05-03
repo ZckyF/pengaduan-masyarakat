@@ -1,4 +1,4 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: var(--bs-light-bg-subtle);">
     <div class="position-sticky pt-3 sidebar-sticky">
       <ul class="nav flex-column">
         {{-- <li class="nav-item">
@@ -7,14 +7,15 @@
             Dashboard
           </a>
         </li> --}}
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="/admin">
+        <li class="nav-item" >
+          <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="/admin" style="{{ !Request::is('admin') ? 'color: var(--bs-body-color)' : '' }}">
             <span data-feather="file-text" class="align-text-bottom"></span>
             Aduan
           </a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('admin/histori')  ? 'active' : ''  }}" href="/admin/histori">
+          <a class="nav-link {{ Request::is('admin/histori')  ? 'active' : ''  }}" href="/admin/histori" style="{{ !Request::is('admin/histori') ? 'color: var(--bs-body-color)' : '' }}">
             <span data-feather="trash-2" class="align-text-bottom"></span>
             Histori
           </a>
@@ -29,8 +30,8 @@
      </h6>
      <ul class="nav flex-column">
        <li class="nav-item">
-         <a class="nav-link {{ Request::is('admin/tambah*') ? 'active' : '' }}" aria-current="page" href="/admin/tambah">
-           <span data-feather="user-plus" class="align-text-bottom"></span>
+         <a class="nav-link {{ Request::is('admin/tambah*') ? 'active' : '' }}" aria-current="page" href="/admin/tambah" style="{{ !Request::is('admin/tambah*') ? 'color: var(--bs-body-color)' : '' }}">
+           <span data-feather="user-plus" class="align-text-bottom" ></span>
              Tambah Admin
          </a>
        </li>

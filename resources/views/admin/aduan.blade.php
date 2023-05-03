@@ -2,7 +2,7 @@
 @section('container')
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Hello, {{ Auth::user()->username }}</h1>
+          <h1 class="h2" style="color: var(--bs-emphasis-color)">Hello, {{ Auth::user()->username }}</h1>
         </div>
 
 
@@ -19,9 +19,9 @@
         </div>
         @endif
 
-        @if (session('status'))
+        @if (session('hapus'))
         <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
-          Pesan aduan : <strong>{{ session('status') }}</strong> 
+          <strong>{{ session('hapus') }}</strong> 
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
