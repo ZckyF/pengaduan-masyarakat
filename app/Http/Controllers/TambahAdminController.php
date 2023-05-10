@@ -18,9 +18,22 @@ class TambahAdminController extends Controller
      */
     public function index()
     {
-        return view('admin.crud-admin.index',[
-            'users' => User::orderBy('created_at','desc')->paginate(10)->withQueryString(),
-            'title' => $this->title
+        // return view('admin.crud-admin.index',[
+        //     'users' => User::orderBy('created_at','desc')->paginate(10)->withQueryString(),
+        //     'title' => $this->title
+        // ]);
+
+        $users = User::query()
+            ->filter(['search' => request('search')])
+            ->orderBy('created_at','desc')
+            ->paginate(10)
+            ->withQueryString();
+
+        
+
+        return view('admin.crud-admin.index', [        
+            "users" => $users,        
+            "title" => $this->title 
         ]);
     }
 

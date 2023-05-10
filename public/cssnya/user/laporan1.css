@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@font-face {
+    font-family: "wicked";
+    src: url(/font/wicked/WickedGrit.ttf);
+}
+@font-face {
+    font-family: "leo";
+    src: url(/font/leo/Laedoomai.otf);
+}
+@font-face {
+    font-family: "vibur";
+    src: url(/font/vibur/Vibur-Regular.ttf);
+}
+@font-face {
+    font-family: "poppins";
+    src: url(/font/poppins/Poppins-Regular.ttf);
+}
+
+.containerr {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.637);
+    background-image: url(/img/user/Design_Contact\ Us.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+.kembali {
+    position: absolute;
+    color: rgb(29, 29, 29);
+    text-decoration: none;
+    font-family: "poppins";
+    top: 5%;
+    left: 5%;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+}
+
+.content {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.bg {
+    background-color: #183a4a;
+    width: 60vw;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+form {
+    display: grid;
+    width: 70%;
+    height: max-content;
+    box-sizing: border-box;
+    justify-self: center;
+    position: relative;
+    color: #000;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    padding: 30px;
+    font-family: "poppins";
+    padding-right: 150px;
+}
+
+form .word h2 {
+    font-family: "poppins", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 5px;
+}
+form .word h2 span {
+    color: #dd5471;
+}
+form .word {
+    height: max-content;
+    display: grid;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+form .word p {
+    color: #222222;
+    line-height: 1.2;
+}
+
+form div {
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+form div input,
+form div textarea {
+    border: none;
+    border: 1px solid #b7b7b7;
+    background-color: transparent;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "poppins";
+}
+
+form div button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    transition: all 0.2s;
+    cursor: pointer;
+    background-color: #dd5471;
+    border-radius: 3px;
+}
+
+.brand {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    transform: rotate(90deg);
+    display: grid;
+    color: #dd54728a;
+    top: 47%;
+    left: -56%;
+}
+.brand h1 {
+    letter-spacing: 70px;
+    font-size: 70px;
+}
+
+.typo {
+    width: 35%;
+    height: 500px;
+    background-image: url(/img/user/BigJohn-free-modern-fonts.jpg);
+    /* background-size: cover; */
+    background-position: center;
+    display: grid;
+    right: 10%;
+    position: relative;
+}
+
+.invalid {
+    border: 2px rgb(221, 25, 25) solid;
+}
+.invalid::placeholder {
+    border: inherit;
+}
+
+.fixed {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    min-width: 100%;
+    height: 100%;
+    z-index: 999999;
+}
+
+.success-message {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #0dd80d;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 30%;
+    position: absolute;
+    margin: 15% auto;
+    margin-left: 550px;
+}
+
+.success-message i {
+    margin-right: 10px;
+    align-self: center;
+    font-size: 5em;
+}
+.success-message p {
+    text-align: center;
+    margin-top: 20px;
+}
+.success-message .link {
+    text-align: center;
+    color: #0dd80d;
+    background-color: white;
+    min-width: 100px;
+    align-self: center;
+    padding: 2px 2px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.link:hover {
+    background-color: rgb(224, 224, 224);
+    color: #06817d;
+    transition: all 0.3s ease-out;
+}
+
+.error-invalid {
+    color: rgba(250, 6, 6, 0.74);
+    margin: 0;
+}
+
+.footer {
+    display: grid;
+    justify-self: center;
+    /* background-color: #183A4A; */
+    color: #0000007e;
+    font-weight: 500;
+}
+.footer p span {
+    color: white;
+    font-weight: bold;
+}
+.footer p span span {
+    color: #fa7e70;
+    font-weight: bold;
+}

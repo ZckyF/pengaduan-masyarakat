@@ -11,11 +11,19 @@ use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
-    public function index () 
+    public function index()
     {
-        return view('admin.aduan', [
-            "complaints" => Complaint::orderBy('created_at')->with('response')->paginate(10)->withQueryString(),
-            "title"      => "Halaman Adura"
+        $complaints = Complaint::query()
+            ->where('removed', false)
+            ->filter(['search' => request('search')])
+            ->orderBy('created_at')
+            ->with('response')
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.aduan', [        
+            "complaints" => $complaints,        
+            "title" => "Halaman Aduan"    
         ]);
     }
 

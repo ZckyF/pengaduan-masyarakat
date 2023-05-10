@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Complaint::factory(20)->create();
+        // Complaint::factory(20)->create();
         User::create([
             'username' => 'Jaki',
             'password' => Hash::make('123'),

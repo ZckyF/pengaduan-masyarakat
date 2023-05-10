@@ -1,17 +1,16 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Models\User;
-use App\Models\Response;
+
 use App\Models\Complaint;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TambahAdminController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +43,15 @@ Route::get('/admin/complaint-response', [AdminController::class,'responseShow'])
 
 
 Route::get('/admin/histori', function () {
+    $complaints = Complaint::query()
+    ->where('removed', true)
+    ->filter(['search' => request('search')])
+    ->orderBy('created_at')
+    ->paginate(10)
+    ->withQueryString();
     return view('admin.histori.index', [
-        "complaints" => Complaint::all(),
+        // "complaints" =>  Complaint::all()->where('removed', true),
+        "complaints" =>  $complaints,
         "title"      => "Halaman Histori Adura "
     ]);
 })->middleware('auth');

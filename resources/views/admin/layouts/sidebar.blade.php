@@ -8,7 +8,7 @@
           </a>
         </li> --}}
         <li class="nav-item" >
-          <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="/admin" style="{{ !Request::is('admin') ? 'color: var(--bs-body-color)' : '' }}">
+          <a class="nav-link {{ Request::is('admin*') ? 'active' : '' }}" href="/admin" style="{{ !Request::is('admin') ? 'color: var(--bs-body-color)' : '' }}">
             <span data-feather="file-text" class="align-text-bottom"></span>
             Aduan
           </a>

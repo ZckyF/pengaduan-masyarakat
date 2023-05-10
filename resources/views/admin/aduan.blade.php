@@ -35,10 +35,11 @@
       @if (count($complaints) > 0)
       
       
-        <div class="table-responsive col-lg-9">
+        <div class="table-responsive col-lg-10">
           <table class="table table-striped table-sm">
             <thead>
               <tr>
+                <th scope="col">Nama</th>
                 <th scope="col">Judul Aduan</th>
                 <th scope="col">Tanggal Aduan</th>
                 <th scope="col">Status</th>
@@ -59,6 +60,7 @@
               @else
                 <tr>
               @endif
+                <td>{{ $complaint->nama }}</td>
                 <td>{{ $complaint->judul }}</td>
                 <td>{{ $complaint->created_at }}</td>
                 <td>

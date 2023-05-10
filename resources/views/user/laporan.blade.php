@@ -1,11 +1,7 @@
-@extends('user.layouts.main')
+{{-- @extends('user.layouts.main')
 @section('container')
 
 
-{{-- <div class="alert  mt-3 col-2 text-center">
-  {{ session('success') }}
-  Laporan aduan telah berhasil dikirim.
-</div> --}}
   @if(session('success')) 
 <div class="fixed">
   <div class="success-message">
@@ -89,4 +85,117 @@
         
     
 @endsection
+ --}}
 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="cssnya/user/laporan1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    
+    <title>Adura | Laporan</title>
+</head>
+<body>
+
+  @if(session('success'))
+  <div class="fixed">
+    <div class="success-message">
+      <i class="check-circle-fill"></i>
+      <p>Laporan aduan telah berhasil dikirim.</p>
+      <a href="/" class="link">Kembali</a>
+    </div>
+  </div>
+  @endif
+ 
+    <div class="containerr">
+
+        <div class="content">
+            <a href="/" class="kembali">Kembali</a>
+
+        <div class="bg">
+
+
+            <form action="/laporan"  method="POST" autocomplete="off" enctype="multipart/form-data">
+              @csrf
+                <div class="word">
+                    <h2>Form Aduan <span>Masyarakat</span></h2>
+                    <p>Adura Siap Melayani Anda 24/7. Suara Rakyat Juga Penting !!!</p>
+                </div>
+                @if ($errors->any())
+                    <div class="error-invalid">Pastikan semua kolom terisi</div>
+                @endif
+
+
+                {{-- @error('nama')
+                <div class="error-invalid">{{ $message }}</div>
+                @enderror --}}
+                    <div class="nama">
+                      <input type="text" id="nama"  placeholder="Nama Lengkap" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" />                 
+                    </div>
+                       {{-- @error('nik')
+                        <div class="error-invalid">{{ $message }}</div>
+                        @enderror --}}
+                    <div class="nik">
+                       
+                        <input type="number" id="nik" placeholder="NIK" name="nik" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik') }}">
+                       
+                    </div>
+                    {{-- @error('email')
+                        <div class="error-invalid">{{ $message }}</div>
+                        @enderror --}}
+                    <div class="email">
+                        
+                        <input type="email" id="email" placeholder="Email" name="email" class="form-control @error('nik') is-invalid @enderror" value="{{ old('email') }}">
+                        
+                    </div>
+                    {{-- @error('judul')
+                        <div class="error-invalid">{{ $message }}</div>
+                      @enderror --}}
+                    <div class="judul">
+                      
+                        <input type="text" id="judul" placeholder="Judul" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul') }}">
+                        
+                    </div>
+                    {{-- @error('aduan')
+                    <div class="error-invalid">{{ $message }}</div>
+                    @enderror --}}
+                    <div class="aduan">
+                      
+                        <textarea name="aduan" id="aduan" cols="30" rows="2" placeholder="Masukkan Aduan Anda" style="resize: none;" name="aduan" class="form-control @error('aduan') is-invalid @enderror" >{{ old('aduan') }}</textarea>
+                        
+                    </div>
+                    
+                    <div class="gambar">
+                       
+                        <input type="file" id="gambar" name="image" class="form-control @error('image') is-invalid @enderror" >
+                        @error('image')
+                          <div class="error-invalid">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="button">
+                        <button type="submit" name="submit" onclick="return confirm('Anda yakin datanya sudah benar ?')">Kirim Laporan</button>
+                    </div>
+                </form>
+                
+                
+                <div class="typo">
+                    <!-- <div class="brand"><h1>ADURA</h1></div> -->
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <p>Created by <span>AD<span>URA</span></span> | All Reserved!</p>
+            </div>
+
+
+        </div>
+    
+    </div>
+</body>
+</html>

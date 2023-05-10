@@ -35,6 +35,7 @@ class ComplaintController extends Controller
 {
         // validasi form
 
+
         if(!$request->validate([
             'nama' => 'required|max:255',
             'email' => 'required|email|max:255',
@@ -52,11 +53,12 @@ class ComplaintController extends Controller
             'aduan.required' => 'Kolom aduan harus diisi.',
             'image.required' => 'Pilih gambar untuk diunggah.',
             'image.image' => 'File harus berupa gambar.',
-            'image.mimes' => 'Format gambar yang diizinkan adalah: jpeg, png, jpg, gif, svg.',
+            'image.mimes' => 'Format gambar yang diizinkan adalah: jpeg, png, jpg, svg.',
             'image.max' => 'Ukuran gambar maksimal 2MB.',
         ])) {
-            return redirect('/laporan')->with('error', 'Terjadi kesalahan saat menyimpan laporan aduan. Silakan coba lagi nanti.')->withInput();
+            return redirect('/laporan')->with('error', 'Terjadi kesalahan saat menyimpan laporan aduan. Silakan coba lagi nanti.');
         }
+        
 
         // simpan gambar ke folder public
         $imageName = time() . '_' . $request->file('image')->getClientOriginalName();

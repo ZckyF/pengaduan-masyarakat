@@ -4,7 +4,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     {{-- <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search"> --}}
-    <div class="dropdown col-md-9">
+    <div class="dropdown col-md-4">
       <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         {{-- <i  class="bi bi-sun-fill theme-icon-active" data-theme-icon-active=" bi-sun-fill"></i> --}}
         Mode
@@ -23,7 +23,13 @@
           </button>
         </li>
       </ul>
+      
     </div>
+
+    <form action="{{ Request::is('/admin') ? '/admin' : '' }} {{ Request::is('/admin/histori') ? '/admin/histori' : '' }} {{ Request::is('/admin/tambah') ? '/admin/tambah' : '' }}" method="get" class="col-md-5">
+      <input class="form-control form-control-dark w-100 rounded-0 border-0-4 " type="text" placeholder="Cari nama atau judul" aria-label="Search" name="search" value="{{ request('search') }}" />
+    
+    </form>
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
         <a class="nav-link px-3" href="/logout">Logout<span data-feather="log-out"></span></a>
