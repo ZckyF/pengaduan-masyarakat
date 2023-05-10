@@ -1,101 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
 body {
-  background-color: silver;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.container {
-    z-index: -1;
+
+@font-face {
+    font-family: "wicked";
+    src: url(/font/wicked/WickedGrit.ttf);
+}
+@font-face {
+    font-family: "leo";
+    src: url(/font/leo/Laedoomai.otf);
+}
+@font-face {
+    font-family: "vibur";
+    src: url(/font/vibur/Vibur-Regular.ttf);
+}
+@font-face {
+    font-family: "poppins";
+    src: url(/font/poppins/Poppins-Regular.ttf);
+}
+
+.containerr {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.637);
+    background-image: url(/img/user/Design_Contact\ Us.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+.kembali {
     position: absolute;
-    margin-left: 450px;
+    color: rgb(29, 29, 29);
+    text-decoration: none;
+    font-family: "poppins";
+    top: 5%;
+    left: 5%;
+    font-size: 15px;
+    border-bottom: 1px solid black;
 }
-.fixed {
-background-color: rgba(0, 0, 0,.9);
-position: absolute;
-min-width: 100%;
-height: 100%;
+
+.content {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.bg {
+    background-color: #183a4a;
+    width: 60vw;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+form {
+    display: grid;
+    width: 70%;
+    height: max-content;
+    box-sizing: border-box;
+    justify-self: center;
+    position: relative;
+    color: #000;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    padding: 30px;
+    font-family: "poppins";
+    padding-right: 150px;
+}
+
+form .word h2 {
+    font-family: "poppins", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 5px;
+}
+form .word h2 span {
+    color: #dd5471;
+}
+form .word {
+    height: max-content;
+    display: grid;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+form .word p {
+    color: #222222;
+    line-height: 1.2;
+}
+
+form div {
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+form div input,
+form div textarea {
+    border: none;
+    border: 1px solid #b7b7b7;
+    background-color: transparent;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "poppins";
+}
+
+form div button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    transition: all 0.2s;
+    cursor: pointer;
+    background-color: #dd5471;
+    border-radius: 3px;
+}
+
+.brand {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    transform: rotate(90deg);
+    display: grid;
+    color: #dd54728a;
+    top: 47%;
+    left: -56%;
+}
+.brand h1 {
+    letter-spacing: 70px;
+    font-size: 70px;
+}
+
+.typo {
+    width: 35%;
+    height: 500px;
+    background-image: url(/img/user/BigJohn-free-modern-fonts.jpg);
+    /* background-size: cover; */
+    background-position: center;
+    display: grid;
+    right: 10%;
+    position: relative;
+}
+
+/* .fixed {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    min-width: 100%;
+    height: 100%;
+    z-index: 999999;
 }
 
 .success-message {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  background-color: #00cdc6;
-  color: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  width: 30%;
-  position: absolute;
-  margin: 15% auto;
- margin-left: 550px;
- 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #0dd80d;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 30%;
+    position: absolute;
+    margin: 15% auto;
+    margin-left: 550px;
 }
 
 .success-message i {
-  margin-right: 10px;
-  align-self: center;
-  font-size: 5em;
+    margin-right: 10px;
+    align-self: center;
+    font-size: 5em;
 }
 .success-message p {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 .success-message .link {
-  text-align: center;
-  color: #00cdc6;
-  background-color: white;
-  min-width: 100px;
-  align-self: center;
-  padding: 2px 2px;
-  text-decoration: none;
+    text-align: center;
+    color: #0dd80d;
+    background-color: white;
+    min-width: 100px;
+    align-self: center;
+    padding: 2px 2px;
+    text-decoration: none;
+    margin-top: 10px;
 }
 
 .link:hover {
     background-color: rgb(224, 224, 224);
     color: #06817d;
-    transition:all .3s ease-out;
+    transition: all 0.3s ease-out;
+} */
+
+.pop-bg {
+    background-color: #000000c9;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    position: fixed;
+    z-index: 999999;
 }
 
-
-
-/* Style untuk modal */
-.modal {
-  display: none; /* Sembunyikan modal secara default */
-  position: fixed; /* Tetapkan posisi elemen */
-  z-index: 1; /* Menempatkan modal di atas elemen lain */
-  left: 0;
-  top: 0;
-  width: 100%; /* Set lebar elemen menjadi 100% */
-  height: 100%; /* Set tinggi elemen menjadi 100% */
-  overflow: auto; /* Aktifkan scrolling jika konten melebihi ketinggian modal */
-  background-color: rgba(0,0,0,0.4); /* Membuat latar belakang menjadi gelap */
+.pop2 {
+    width: 250px;
+    height: 280px;
+    display: grid;
+    justify-content: center;
+    background-image: linear-gradient(to top, #388e95, #3cccac);
+    border-radius: 5px;
+    font-family: "poppins";
+    padding: 20px 5px;
 }
 
-/* Style untuk konten modal */
-.modal-content {
-  background-color: white;
-  margin: 15% auto; /* Posisikan konten modal ke tengah */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Set lebar konten modal */
+.pop2 .top {
+    display: grid;
+    justify-items: center;
+    height: max-content;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+.pop2 .top img {
+    width: 100px;
+}
+.pop2 .top h1 {
+    font-size: 30px;
 }
 
-/* Style untuk header modal */
-.modal-header h2 {
-  margin-top: 0;
+.pop2 .bottom {
+    display: grid;
+    justify-items: center;
+    height: max-content;
+}
+.pop2 .bottom p {
+    text-align: center;
+    line-height: 1.2;
+    color: #ffffffc9;
 }
 
-/* Style untuk tombol close */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.pop2 a {
+    width: max-content;
+    height: max-content;
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    padding: 5px 30px;
+    border-radius: 30px;
+    position: relative;
+    bottom: -65%;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.error-invalid {
+    color: rgba(250, 6, 6, 0.74);
+    margin: 0;
+}
+
+.footer {
+    display: grid;
+    justify-self: center;
+    /* background-color: #183A4A; */
+    color: #0000007e;
+    font-weight: 500;
+}
+.footer p span {
+    color: white;
+    font-weight: bold;
+}
+.footer p span span {
+    color: #fa7e70;
+    font-weight: bold;
 }

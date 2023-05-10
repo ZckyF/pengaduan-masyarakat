@@ -94,15 +94,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="cssnya/user/laporan1.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="cssnya/user/laporan.css">
     
     
     <title>Adura | Laporan</title>
 </head>
 <body>
 
-  @if(session('success'))
+  {{-- @if(session('success'))
   <div class="fixed">
     <div class="success-message">
       <i class="check-circle-fill"></i>
@@ -110,7 +109,22 @@
       <a href="/" class="link">Kembali</a>
     </div>
   </div>
-  @endif
+  @endif --}}
+ 
+  @if(session('success')) 
+  <div class="pop-bg">    
+    <div class="pop2">
+        <div class="top">
+            <img src="/img/user/success.png" alt="">
+            <h1>Berhasil !</h1>
+        </div>
+        <div class="bottom">
+            <p>Laporan Anda <br> Telah Berhasil Dikirim</p>
+        </div>
+        <a href="/">Kembali</a>
+    </div>
+</div>
+@endif 
  
     <div class="containerr">
 
