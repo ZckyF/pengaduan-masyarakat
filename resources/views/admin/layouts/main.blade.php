@@ -13,6 +13,8 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('cssnya/admin/aduan-admin.css') }}" rel="stylesheet">
 
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+
   </head>
   <body>
     @include('admin.layouts.header')

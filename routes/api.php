@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\Message;
+use App\Models\Complaint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('complaints', function() {
+    return response()->json(Complaint::all()->where('deleted', false));
+});
+
+Route::get('tes', function() {
+    // Call Event
+    Message::dispatch("AJG");
 });

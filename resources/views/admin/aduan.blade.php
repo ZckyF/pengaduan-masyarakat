@@ -46,41 +46,10 @@
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              @foreach ($complaints as $complaint)
-                @if (!$complaint->removed)
-                @if (!is_null($complaint->response))
-                @if ($complaint->response->status == "ditolak")
-                  <tr class="table-danger">
-                @elseif ($complaint->response->status == "ditanggapi")
-                  <tr class="table-success">
-                @else
-                  <tr>
-                @endif
-              @else
-                <tr>
-              @endif
-                <td>{{ $complaint->nama }}</td>
-                <td>{{ $complaint->judul }}</td>
-                <td>{{ $complaint->created_at }}</td>
-                <td>
-                  @if (!isset($complaint->response))
-                    pending
-                  @else
-                    {{ $complaint->response->status }}
-                  @endif
-                </td>
-                <td>
-                  <a href="/admin/detail/{{ $complaint->id }}" class="badge bg-info" ><span data-feather="eye"></span></a>
-                  <a href="/admin/{{ $complaint->id }}/delete" class="badge bg-danger" onclick="return confirm('Yakin ingin menghapus aduan ini')"><span data-feather="x-circle"></span></a>
-                </td>
-              </tr>
-              @endif
-            @endforeach
-            
-            
+            <tbody id="live">
             </tbody>
           </table>
+          <script src="{{ mix('js/app.js') }}"></script>
         </div>
 
         @else
