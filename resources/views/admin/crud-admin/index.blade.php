@@ -36,7 +36,7 @@
       </thead>
       <tbody>
 
-        <a href="/admin/tambah/create" class="btn btn-primary m-4 py-2 px-4">Tambah Data</a>
+        <a href="/admin/tambah/create" class="btn btn-primary m-4 py-2 px-4">Tambah Data Admin</a>
         {{-- <form method="GET" action="/admin/list" class="mb-3">
           <div class="row g-2 mt-4 mb-3 align-self-end align-items-end d-flex">
             <div class="col-md-2  mx-3">
@@ -66,7 +66,7 @@
             <form action="/admin/tambah/{{ $user->id }}" method="post" class="d-inline">
               @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Yakin ingin menghapus aduan ini')"><span data-feather="x-circle"></span></button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Yakin ingin menghapus admin ini')"><span data-feather="x-circle"></span></button>
 
             </form>
           </td>

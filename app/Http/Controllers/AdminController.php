@@ -31,7 +31,8 @@ class AdminController extends Controller
     {
         return view('admin.detail-aduan', [
             "complaint" => Complaint::find($id),
-            "title"     => "Detail Aduan"
+            "title"     => "Detail Aduan",
+            "Disabled"    => "Detail"
         ]);   
     }
 

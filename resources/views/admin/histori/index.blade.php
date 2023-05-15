@@ -10,6 +10,7 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
+            <th scope="col">No.</th>
             <th scope="col">Nama</th>
             <th scope="col">Aduan</th>
             <th scope="col">Tanggal Aduan</th>
@@ -20,6 +21,7 @@
         @foreach ($complaints as $complaint)
             @if ($complaint->removed)
             <tr>
+              <td>{{ $loop->iteration }}</td>
               <td>{{ $complaint->nama }}</td>
               <td>{{ $complaint->judul }}</td>
               <td>{{ $complaint->created_at }}</td>

@@ -39,6 +39,7 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
+                <th scope="col">No.</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Judul Aduan</th>
                 <th scope="col">Tanggal Aduan</th>
@@ -60,6 +61,7 @@
               @else
                 <tr>
               @endif
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $complaint->nama }}</td>
                 <td>{{ $complaint->judul }}</td>
                 <td>{{ $complaint->created_at }}</td>
