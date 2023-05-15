@@ -46,7 +46,7 @@
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
-            <tbody id="live">
+            <tbody id="complaintsLive">
             </tbody>
           </table>
           <script src="{{ mix('js/app.js') }}"></script>

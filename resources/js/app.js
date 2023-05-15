@@ -12,5 +12,5 @@ require("./bootstrap");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require("./components/Live");
-require("./components/PDFPage");
+require("./components/Complaints");
+require("./components/ComplaintsRemoved");

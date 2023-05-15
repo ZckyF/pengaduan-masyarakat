@@ -76,8 +76,8 @@ class ComplaintController extends Controller
             'image' => $imageUrl,
         ]);
         
-        // Call Event
-        Message::dispatch("AJG");
+        // Report
+        Message::dispatch("Yameteh");
 
         return redirect('/laporan')->with('success', 'Laporan aduan telah berhasil dikirim.');
      

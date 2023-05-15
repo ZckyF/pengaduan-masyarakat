@@ -10,18 +10,24 @@ class ComplaintResponse extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject;
-    public $message;
+    public $nama;
+    public $status;
+    public $perihal;
+    public $balasan;
+    public $tanggal;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject, $message)
+    public function __construct($nama, $status, $perihal, $balasan, $tanggal)
     {
-        $this->subject = $subject;
-        $this->message = $message;
+        $this->nama = $nama;
+        $this->status = $status;
+        $this->perihal = $perihal;
+        $this->balasan = $balasan;
+        $this->tanggal = $tanggal;
     }
 
     /**
@@ -33,6 +39,12 @@ class ComplaintResponse extends Mailable
     {
         return $this->subject($this->subject)
                     ->view('admin.complaint-response')
-                    ->with(['pesan' => $this->message]);
+                    ->with([
+                        "nama" => $this->nama,
+                        "status" => $this->status,
+                        "perihal" => $this->perihal,
+                        "balasan" => $this->balasan,
+                        "tanggal" => $this->tanggal,
+                    ]);
     }
 }

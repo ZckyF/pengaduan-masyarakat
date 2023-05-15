@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Eye, XCircle } from "react-feather";
 
-function Live() {
+function Complaints() {
     const [complaints, setComplaints] = useState([]);
 
     async function fetchComplaints() {
@@ -20,7 +20,7 @@ function Live() {
     useEffect(() => {
         fetchComplaints();
 
-        Pusher.logToConsole = true;
+        // Pusher.logToConsole = true;
 
         var pusher = new Pusher("72fed3cca886fbc8f626", {
             cluster: "ap1",
@@ -56,11 +56,6 @@ function Live() {
                                             <a
                                                 href={`/admin/${complaint.id}/delete`}
                                                 className="badge bg-danger"
-                                                onClick={() => {
-                                                    confirm(
-                                                        "Yakin ingin menghapus aduan ini"
-                                                    );
-                                                }}
                                             >
                                                 <XCircle size={20} />
                                             </a>
@@ -82,11 +77,6 @@ function Live() {
                                             <a
                                                 href={`/admin/${complaint.id}/delete`}
                                                 className="badge bg-danger"
-                                                onClick={() => {
-                                                    confirm(
-                                                        "Yakin ingin menghapus aduan ini"
-                                                    );
-                                                }}
                                             >
                                                 <XCircle size={20} />
                                             </a>
@@ -109,11 +99,6 @@ function Live() {
                                         <a
                                             href={`/admin/${complaint.id}/delete`}
                                             className="badge bg-danger"
-                                            onClick={() => {
-                                                confirm(
-                                                    "Yakin ingin menghapus aduan ini"
-                                                );
-                                            }}
                                         >
                                             <XCircle size={20} />
                                         </a>
@@ -127,8 +112,8 @@ function Live() {
     );
 }
 
-export default Live;
+export default Complaints;
 
-if (document.getElementById("live")) {
-    ReactDOM.render(<Live />, document.getElementById("live"));
+if (document.getElementById("complaintsLive")) {
+    ReactDOM.render(<Complaints />, document.getElementById("complaintsLive"));
 }

@@ -16,24 +16,9 @@
             <th scope="col">Restore</th>
         </tr>
       </thead>
-      <tbody>
-        @foreach ($complaints as $complaint)
-            @if ($complaint->removed)
-            <tr>
-              <td>{{ $complaint->nama }}</td>
-              <td>{{ $complaint->judul }}</td>
-              <td>{{ $complaint->created_at }}</td>
-              <td>
-                <form action="/admin/histori" method="post" class="d-inline">
-                  @csrf
-                  <input type="hidden" name="id" value="{{ $complaint->id }}">
-                  <button class="badge bg-warning border-0" onclick="return confirm('Yakin ingin Restore ?')"><span data-feather="refresh-ccw" ></span></button>
-                </form>
-              </td>
-            </tr>
-            @endif
-        @endforeach
+      <tbody id="complaintsRemovedLive">
       </tbody>
+      <script src="{{ mix('js/app.js') }}"></script>
     </table>
   </div>
 
