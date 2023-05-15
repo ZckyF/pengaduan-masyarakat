@@ -47,6 +47,7 @@
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
+<<<<<<< HEAD
             <tbody>
               @foreach ($complaints as $complaint)
                 @if (!$complaint->removed)
@@ -81,8 +82,12 @@
             @endforeach
             
             
+=======
+            <tbody id="live">
+>>>>>>> 641bcb24b2d0f3e78ff05d269b9081ffaf4d2fdc
             </tbody>
           </table>
+          <script src="{{ mix('js/app.js') }}"></script>
         </div>
 
         @else

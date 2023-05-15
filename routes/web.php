@@ -66,3 +66,20 @@ Route::post('/admin/histori', function(Request $request) {
 });
 
 Route::resource('/admin/tambah', TambahAdminController::class)->middleware('auth');
+
+Route::get('pdf/{id}', function(Request $request, $id) {
+    $complaint = Complaint::find($id);
+    return view('admin.pdf-page', [
+        // "nama" => $request->input('nama'),
+        // "status" => $request->input('status'),
+        // "perihal" => $request->input('perihal'),
+        // "balasan" => $request->input('balasan'),
+        // "tanggal" => $request->input('tanggal'),
+        "nama" => $complaint->nama,
+        "status" => $complaint->response->status,
+        "perihal" => $complaint->judul,
+        "gambar" => $complaint->image,
+        "balasan" => $complaint->response->tanggapan,
+        "tanggal" => $complaint->response->created_at,
+    ]);
+});

@@ -11,6 +11,7 @@ class Complaint extends Model
 
     
     protected $guarded = ['id'];
+    protected $with = ['response'];
 
     public function scopeFilter($query, array $filters)
     {

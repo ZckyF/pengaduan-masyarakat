@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Message;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -63,7 +64,7 @@ class ComplaintController extends Controller
         // simpan gambar ke folder public
         $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
         $request->file('image')->move(public_path('images'), $imageName);
-        $imageUrl = asset('images/' . $imageName);        
+        $imageUrl = asset('images/' . $imageName);
 
         // simpan pengaduan ke database
         Complaint::create([
@@ -75,6 +76,8 @@ class ComplaintController extends Controller
             'image' => $imageUrl,
         ]);
         
+        // Call Event
+        Message::dispatch("AJG");
 
         return redirect('/laporan')->with('success', 'Laporan aduan telah berhasil dikirim.');
      
