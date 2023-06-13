@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Message;
 use App\Models\Response;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
@@ -39,60 +40,41 @@ class AdminController extends Controller
     public function response (Request $request, $id) 
     {
         $response = trim($request->input('response'));
-    if ($response != '')
-    {
-        $status = $request->input('tanggapiButton', 'ditolak');
-        $complaint = Complaint::find($id);
-
-        $userEmail = $complaint->email;
-        $username = $complaint->nama;
-        $judul = $complaint->judul;
-
-
-        if (!is_null($complaint->response_id))
+        if ($response != '')
         {
-            Response::find($complaint->response_id)->update([
+            $status = $request->input('tanggapiButton', 'ditolak');
+            $complaint = Complaint::find($id);
+
+
+            if (!is_null($complaint->response_id))
+            {
+                Response::find($complaint->response_id)->update([
+                    'oleh' => Auth::user()->username,
+                    'status' => $status,
+                    'tanggapan' => $response,
+                ]);
+            }
+
+            Response::create([
                 'oleh' => Auth::user()->username,
                 'status' => $status,
                 'tanggapan' => $response,
             ]);
-            // if ($status == 'ditolak') {
-            //     $subject = 'Pesan Aduan Anda Ditolak';
-            //     $message = "Halo $username, pesan aduan anda yang berjudul '$judul'  telah ditolak. Pesan admin : $response";
-            //     Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
-            // } else {
-            //     $subject = 'Pesan Aduan Anda Ditanggapi';
-            //     $message = "Halo $username, pesan aduan Anda yang berjudul '$judul' telah ditanggapi. Pesan admin : $response";
-            //     Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
-            // }
+
+            $complaint->update([
+                'response_id' => Response::where('tanggapan', $response)->first()->id
+            ]);
+
+            $complaint = Complaint::find($id);
+            Mail::to($complaint->email)->send(new \App\Mail\ComplaintResponse($complaint->nama, $complaint->response->status, $complaint->aduan, $complaint->response->tanggapan, $complaint->response->created_at));
+
+            // Report
+            Message::dispatch("Yameteh");
+
             return redirect('admin')->with('status', $status);
         }
-
-        Response::create([
-            'oleh' => Auth::user()->username,
-            'status' => $status,
-            'tanggapan' => $response,
-        ]);
-
-        $complaint->update([
-            'response_id' => Response::where('tanggapan', $response)->first()->id
-        ]);
-
         
-    //    if ($status == 'ditolak') {
-    //             $subject = 'Pesan Aduan Anda Ditolak';
-    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditolak. Pesan admin : $response";
-    //             Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
-    //         } 
-    //     else {
-    //             $subject = 'Pesan Aduan Anda Ditanggapi';
-    //             $message = "Halo $username, pesan aduan anda yang berjudul '$judul' telah ditanggapi. Pesan admin : $response";
-    //             Mail::to($userEmail)->send(new \App\Mail\ComplaintResponse($subject, $message));
-    //         }
-        return redirect('admin')->with('status', $status);
-        
-    }
-    return redirect('admin');   
+        return redirect('admin');   
     }
 
     public function responseShow () 
@@ -106,6 +88,9 @@ class AdminController extends Controller
         $complaint->update([
             'removed' => true
         ]);
+
+        // Report
+        Message::dispatch("Yameteh");
         
         return redirect('admin')->with('hapus', "Aduan yang berjudul '$complaint->judul' berhasil dihapus ");   
  

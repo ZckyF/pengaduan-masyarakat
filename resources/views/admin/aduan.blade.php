@@ -48,6 +48,7 @@
               </tr>
             </thead>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <tbody>
               @foreach ($complaints as $complaint)
                 @if (!$complaint->removed)
@@ -85,6 +86,9 @@
 =======
             <tbody id="live">
 >>>>>>> 641bcb24b2d0f3e78ff05d269b9081ffaf4d2fdc
+=======
+            <tbody id="complaintsLive">
+>>>>>>> yamet
             </tbody>
           </table>
           <script src="{{ mix('js/app.js') }}"></script>

@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('complaints', function() {
-    return response()->json(Complaint::all()->where('deleted', false));
+    return response()->json(Complaint::select("*")->where('removed', false)->get());
+});
+
+Route::get('complaints/removed', function() {
+    return response()->json(Complaint::select("*")->where('removed', true)->get());
 });
 
 Route::get('tes', function() {

@@ -1,16 +1,16 @@
 <?php
 
+use App\Events\Message;
 use App\Http\Controllers\AdminController;
 
 use App\Models\Complaint;
-use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TambahAdminController;
-
-
+// use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,30 +56,39 @@ Route::get('/admin/histori', function () {
     ]);
 })->middleware('auth');
 
-Route::post('/admin/histori', function(Request $request) {
-    Complaint::find($request->input('id'))->update([
+Route::get('/admin/histori/restore/{id}', function($id) {
+    $complaint = Complaint::find($id);
+    
+    $complaint->update([
         'removed' => false
     ]);
-    $complaint = Complaint::find($request->input('id'));
+
+    // Report
+    Message::dispatch("Yameteh");
 
     return redirect('admin')->with('restore', "Aduan yang berjudul $complaint->judul berhasil di restore ");
 });
 
 Route::resource('/admin/tambah', TambahAdminController::class)->middleware('auth');
 
-Route::get('pdf/{id}', function(Request $request, $id) {
-    $complaint = Complaint::find($id);
-    return view('admin.pdf-page', [
-        // "nama" => $request->input('nama'),
-        // "status" => $request->input('status'),
-        // "perihal" => $request->input('perihal'),
-        // "balasan" => $request->input('balasan'),
-        // "tanggal" => $request->input('tanggal'),
-        "nama" => $complaint->nama,
-        "status" => $complaint->response->status,
-        "perihal" => $complaint->judul,
-        "gambar" => $complaint->image,
-        "balasan" => $complaint->response->tanggapan,
-        "tanggal" => $complaint->response->created_at,
-    ]);
-});
+// Route::get('pdf/{id}', function(Request $request, $id) {
+//     $complaint = Complaint::find($id);
+//     return view('admin.pdf-page', [
+//         // "nama" => $request->input('nama'),
+//         // "status" => $request->input('status'),
+//         // "perihal" => $request->input('perihal'),
+//         // "balasan" => $request->input('balasan'),
+//         // "tanggal" => $request->input('tanggal'),
+//         "nama" => $complaint->nama,
+//         "status" => $complaint->response->status,
+//         "perihal" => $complaint->judul,
+//         "gambar" => $complaint->image,
+//         "balasan" => $complaint->response->tanggapan,
+//         "tanggal" => $complaint->response->created_at,
+//     ]);
+// });
+
+// Route::get('mail/{id}', function($id) {
+//     $complaint = Complaint::find($id);
+//     Mail::to('p21-sifa373@smkn7-smr.sch.id')->send(new \App\Mail\ComplaintResponse($complaint->nama, $complaint->response->status, $complaint->aduan, $complaint->response->tanggapan, $complaint->response->created_at));
+// });

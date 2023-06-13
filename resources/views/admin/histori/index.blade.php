@@ -17,6 +17,7 @@
             <th scope="col">Restore</th>
         </tr>
       </thead>
+<<<<<<< HEAD
       <tbody>
         @foreach ($complaints as $complaint)
             @if ($complaint->removed)
@@ -35,7 +36,11 @@
             </tr>
             @endif
         @endforeach
+=======
+      <tbody id="complaintsRemovedLive">
+>>>>>>> yamet
       </tbody>
+      <script src="{{ mix('js/app.js') }}"></script>
     </table>
   </div>
 
